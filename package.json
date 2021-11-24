@@ -1,0 +1,22 @@
+{
+  "name": "dentalonboard-api",
+  "version": "1.0.0",
+  "description": "Dental On Board NodeJS API Interface",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://caploura: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@github.com/caploura/dentalonboard-api.git"
+  },
+  "author": "Carlos Loura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caploura/dentalonboard-api/issues"
+  },
+  "homepage": "https://github.com/caploura/dentalonboard-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
