@@ -17,7 +17,7 @@ app.get("*", (req, res) => {
   res.send("Not Found");
 });
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 const server = http.createServer(app);
 
 server.listen(port, () => {
