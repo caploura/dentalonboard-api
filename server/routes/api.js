@@ -30,6 +30,12 @@ router.post("/email", (req, res, next) => {
       emailContents.message,
       emailContents.email
     ),
+    attachments: [
+      {
+        filename: "CV.pdf",
+        content: new Buffer(emailContents.attachment, "application/pdf"),
+      },
+    ],
   };
 
   sendEmail(mailOptions)
