@@ -17,6 +17,7 @@ oauth2Client.setCredentials({ refresh_token: config.REFRESH_TOKEN });
 
 router.post("/email", (req, res, next) => {
   const emailContents = req.body;
+  console.log(JSON.stringify(emailContents));
   const mailOptions = {
     from: `DOB Site <${config.EMAIL}>`,
     to: config.EMAIL,
@@ -30,12 +31,17 @@ router.post("/email", (req, res, next) => {
       emailContents.message,
       emailContents.email
     ),
-    attachments: [
-      {
-        filename: "CV.pdf",
-        content: new Buffer(emailContents.attachment, "application/pdf"),
-      },
-    ],
+
+    attachments:
+      emailContents.attachmentFileName.length > 0
+        ? [
+            {
+              filename: emailContents.attachmentFileName,
+              content: Buffer.from(emailContents.attachment, "base64"),
+              contentType: "application/pdf",
+            },
+          ]
+        : [],
   };
 
   sendEmail(mailOptions)
