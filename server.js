@@ -2,8 +2,11 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const api = require("./server/routes/api");
+const bodyParser = require("body-parser");
 
 const app = express();
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json({ limit: "50mb" }));
 app.use(express.json());
 app.use(cors());
 
