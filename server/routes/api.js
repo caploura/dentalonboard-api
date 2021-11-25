@@ -16,10 +16,7 @@ const oauth2Client = new google.auth.OAuth2(
 oauth2Client.setCredentials({ refresh_token: config.REFRESH_TOKEN });
 
 router.post("/email", (req, res, next) => {
-  console.log(`Received the following message:`);
-  console.log(JSON.stringify(req.body));
   const emailContents = req.body;
-
   const mailOptions = {
     from: `DOB Site <${config.EMAIL}>`,
     to: config.EMAIL,
