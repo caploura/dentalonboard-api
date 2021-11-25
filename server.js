@@ -1,20 +1,19 @@
 const express = require("express");
 const http = require("http");
-
+const cors = require("cors");
 const api = require("./server/routes/api");
+
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 app.get("/error/*", (req, res) => {
-  res.status(400);
-  res.send("Error");
+  res.sendStatus(400);
 });
 
-app.use("/dentalonboard-api", api);
-
 app.get("*", (req, res) => {
-  res.status(404);
-  res.send("Not Found");
+  res.sendStatus(404);
 });
 
 const port = process.env.PORT || 3001;
