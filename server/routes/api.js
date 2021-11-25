@@ -42,6 +42,10 @@ router.post("/email", (req, res, next) => {
   res.sendStatus(200);
 });
 
+router.get("/test", (req, res, next) => {
+  res.sendStatus(200);
+});
+
 async function sendEmail(mailOptions) {
   try {
     const accessToken = await oauth2Client.getAccessToken();
