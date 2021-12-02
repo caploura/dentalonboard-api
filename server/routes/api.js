@@ -49,14 +49,13 @@ router.post("/email", (req, res, next) => {
     .then((result) => {
       console.log(`Email sent, msg: ${JSON.stringify(result)}`);
       statusCode = result.code || 200;
-      console.log(`Status Code: ${statusCode}`);
     })
     .catch((error) => {
       statusCode = 500;
-      console.log(`Status Code: ${statusCode}`);
       console.log(JSON.stringify(error));
     });
 
+  console.log(`Status Code: ${statusCode}`);
   res.sendStatus(statusCode);
 });
 
