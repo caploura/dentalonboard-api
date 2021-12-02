@@ -48,7 +48,7 @@ router.post("/email", (req, res, next) => {
   sendEmail(mailOptions)
     .then((result) => {
       console.log(`Email sent, msg: ${JSON.stringify(result)}`);
-      statusCode = result.code;
+      statusCode = result.code || 200;
       console.log(`Status Code: ${statusCode}`);
     })
     .catch((error) => {
