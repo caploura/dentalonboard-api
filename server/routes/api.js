@@ -44,11 +44,20 @@ router.post("/email", (req, res, next) => {
         : [],
   };
 
+  var statusCode;
   sendEmail(mailOptions)
-    .then((result) => console.log(`Email sent, msg: ${JSON.stringify(result)}`))
-    .catch((error) => console.log(error));
+    .then((result) => {
+      console.log(`Email sent, msg: ${JSON.stringify(result)}`);
+      statusCode = result.code;
+      console.log(`Status Code: ${statusCode}`);
+    })
+    .catch((error) => {
+      statusCode = 500;
+      console.log(`Status Code: ${statusCode}`);
+      console.log(JSON.stringify(error));
+    });
 
-  res.sendStatus(200);
+  res.sendStatus(statusCode);
 });
 
 router.get("/test", (req, res, next) => {
