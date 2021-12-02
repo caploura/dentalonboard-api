@@ -17,7 +17,7 @@ oauth2Client.setCredentials({ refresh_token: config.REFRESH_TOKEN });
 
 router.post("/email", (req, res, next) => {
   const emailContents = req.body;
-  console.log(JSON.stringify(emailContents));
+  // console.log(JSON.stringify(emailContents));
   const mailOptions = {
     from: `DOB Site <${config.EMAIL}>`,
     to: config.EMAIL,
