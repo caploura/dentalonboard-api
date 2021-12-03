@@ -37,7 +37,7 @@ router.post("/email", (req, res, next) => {
         ? [
             {
               filename: emailContents.attachmentFileName,
-              content: Buffer.from(emailContents.attachment, "base64"),
+              content: Buffer.from(emailContents.attachment, "utf8"),
               contentType: "application/pdf",
             },
           ]
